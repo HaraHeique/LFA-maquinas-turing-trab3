@@ -1,0 +1,12 @@
+; Questão 9
+; Máquina de Turing que subtraia 1 da cadeia de entrada em binário
+
+; Exemplo: 10101 produz 10100
+
+0  * * r 0
+0  _ _ l s1
+s1 0 1 l s1
+s1 1 0 r halt-accept
+s1 _ _ r s2
+s2 1 0 r s2
+s2 _ _ r halt-accept

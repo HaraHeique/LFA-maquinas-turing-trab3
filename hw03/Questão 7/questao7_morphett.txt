@@ -1,0 +1,18 @@
+; Questão 7
+; Máquina de Turing que reconheça a linguagem {w | w ∈ {a, b}* ∧ |w|a = |w|b }
+
+; Cadeias aceitas: abba, baab, abab, bbaaba e abba
+; Cadeias rejeitadas: a, b, abaaa, bbaabab, aa, bb, aaaa, bbbb
+
+0  a X r s1
+0  b Y r s2
+0  * * r 0
+0  _ _ r halt-accept
+s1 * * r s1
+s1 b Y l s3
+s1 _ _ r halt-reject
+s2 * * r s2
+s2 a X l s3
+s2 _ _ r halt-reject
+s3 * * l s3
+s3 _ _ r 0

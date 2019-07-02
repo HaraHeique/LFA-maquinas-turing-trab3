@@ -1,0 +1,26 @@
+; Questão 4
+; Máquina de Turing que receba como entrada uma cadeia na forma:
+; 1^m × 1^n = , onde m, n ∈ N e produza uma uma cadeia na forma 1^m × 1^n = 1^(mn).
+
+; Exemplo: 11X111=111111
+
+0  1 E r s1
+0  X X l s5
+s1 * * r s1
+s1 X X r s2
+s1 _ _ r halt-reject
+s2 _ _ r halt-reject
+s2 1 D r s3
+s2 = = l s6
+s3 * * r s3
+s3 = = r s7
+s3 _ _ r halt-reject
+s4 * * l s4
+s4 D 1 r s2
+s5 _ _ r halt-reject
+s5 1 1 r halt-accept
+s6 * * l s6
+s6 E 1 r 0
+s6 _ _ r halt-reject
+s7 * * r s7
+s7 _ 1 l s4

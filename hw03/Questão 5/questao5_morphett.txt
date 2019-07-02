@@ -1,0 +1,24 @@
+; Questão 5
+; Máquina de Turing que reconheça a linguagem {ww^r | w ∈ {a, b}* }.
+
+; Exemplo: w = aab, então ww^r = aabbaa
+
+; Para reconhecer foi utilizada a estratégia de ir destruindo as extremidades 
+; da cadeia de entrada até ficar vazia
+
+; Cadeias aceitas: abba, baab, aa, bb, aaaa, bbbb, abaaba
+; Cadeias rejeitadas: aabb, a, b, ab
+
+0  a _ r s1
+0  b _ r s3
+0  _ _ r halt-accept
+s1 * * r s1
+s1 _ _ l s2
+s2 a _ l s5
+s2 * * r halt-reject
+s3 * * r s3
+s3 _ _ l s4
+s4 b _ l s5
+s4 * * r halt-reject
+s5 * * l s5
+s5 _ _ r 0

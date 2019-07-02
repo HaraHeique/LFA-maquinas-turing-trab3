@@ -1,0 +1,21 @@
+; Questão 6
+; Máquina de Turing que receba uma cadeia w ∈ {a, b}* na fita, e construa a cadeia ww r
+
+; Exemplo: w = aab, então ww^r = aabbaa
+
+0  * * r 0
+0  _ _ l s1
+s1 * * l s1
+s1 _ _ r halt-accept
+s1 a X r s2
+s1 b Y r s3
+s2 * * r s2
+s2 _ a l s4
+s3 * * r s3
+s3 _ b l s5
+s4 * * l s4
+s4 _ _ r halt-reject
+s4 X a l s1
+s5 * * l s5
+s5 _ _ r halt-reject
+s5 Y b l s1

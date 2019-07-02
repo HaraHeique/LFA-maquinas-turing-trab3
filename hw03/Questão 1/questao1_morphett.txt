@@ -1,0 +1,18 @@
+; Questão 1
+; Máquina de Turing que reconheça a linguagem {0^n 1^n | n ≥ 1}.
+
+; Cadeias aceitas: 01, 0011, 000111
+; Cadeias rejeitadas: 0, 1, 001, 011, 00111, 00011
+
+0  0 X r s1
+0  1 1 r halt-reject
+0  Y Y r halt-reject
+s1 * * r s1
+s1 _ _ r halt-reject
+s1 1 Y r s2
+s2 X X r 0
+s2 * * l s2
+s2 _ _ l s3
+s3 * * l s3
+s3 0 0 r halt-reject
+s3 _ _ r halt-accept

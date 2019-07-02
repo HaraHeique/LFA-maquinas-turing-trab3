@@ -1,0 +1,19 @@
+; Questão 3
+; Máquina de Turing que receba uma cadeia na linguagem {0, 1}*, desloque a célula de entrada uma célula para a direita e retorne à posição inicial.
+
+0   0 X r s1
+0   1 Y r s1
+s1  * * r s1
+s1  _ _ l s2
+s2  0 _ r s3
+s3  _ 0 l s4
+s4  _ _ l s2
+s2  1 _ r s5
+s5  _ 1 l s4
+s2  X X r s6
+s6  _ 0 l s7
+s7  X @ r s8
+s8  * * l halt-accept
+s2  Y Y r s9
+s9  _ 1 l s10
+s10 Y @ r s8

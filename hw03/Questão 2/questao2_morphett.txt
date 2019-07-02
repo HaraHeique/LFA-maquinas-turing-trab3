@@ -1,0 +1,21 @@
+; Questão 2
+; Máquina de Turing que reconheça a linguagem {a^n b^n c^n | n ≥ 1}.
+
+; Cadeias aceitas: abc, aabbcc, aaabbbccc
+; Cadeias rejeitadas: a, b, c, ab, ac, bc, aabbccc, aaabbcc, aabbbcc, abbcc
+
+0  a X r s1
+0  * * r halt-reject
+s1 * * r s1
+s1 _ _ r halt-reject
+s1 b Y r s2
+s2 * * r s2
+s2 _ _ r halt-reject
+s2 c Z r s3
+s3 * * l s3
+s3 X X r 0
+s3 _ _ l s4
+s4 * * l s4
+s4 a a r halt-reject
+s4 b b r halt-reject
+s4 _ _ r halt-accept

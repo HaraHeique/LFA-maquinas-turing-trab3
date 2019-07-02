@@ -1,0 +1,10 @@
+; Questão 8
+; Máquina de Turing que some 1 à cadeia de entrada em binário
+
+; Exemplo: 10101 produz 10110
+
+0  * * r 0
+0  _ _ l s1
+s1 1 0 l s1
+s1 0 1 r halt-accept
+s1 _ 1 r halt-accept
