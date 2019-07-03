@@ -1,5 +1,5 @@
 ; Questão 6
-; Máquina de Turing que receba uma cadeia w ∈ {a, b}* na fita, e construa a cadeia ww r
+; Máquina de Turing que receba uma cadeia w ∈ {a, b}* na fita, e construa a cadeia ww^r
 
 ; Exemplo: w = aab, então ww^r = aabbaa
 
